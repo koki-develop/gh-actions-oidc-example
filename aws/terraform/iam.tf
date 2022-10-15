@@ -28,9 +28,9 @@ data "aws_iam_policy_document" "example_assume_role_policy" {
       values   = ["sts.amazonaws.com"]
     }
     condition {
-      test     = "StringLike"
+      test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:koki-develop/gh-actions-oidc-example:*"]
+      values   = ["repo:koki-develop/gh-actions-oidc-example:ref:refs/heads/main"]
     }
   }
 }
