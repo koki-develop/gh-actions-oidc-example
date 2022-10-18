@@ -15,5 +15,4 @@ jobs:
         with:
           workload_identity_provider: ${{ secrets.GOOGLE_WORKLOAD_IDENTITY_PROVIDER_NAME }}
           service_account: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
-          token_format: access_token # debug
       - run: gcloud storage ls gs://oidc-test-bucket-abc
