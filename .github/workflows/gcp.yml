@@ -1,0 +1,17 @@
+name: gcp
+
+on:
+  push:
+
+jobs:
+  gsls:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: google-github-actions/auth@v0
+        with:
+          workload_identity_provider: ${{ secrets.GOOGLE_WORKLOAD_IDENTITY_PROVIDER_NAME }}
+          service_account: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
+      - run: gsutil ls gs://oidc-test-bucket-abc
